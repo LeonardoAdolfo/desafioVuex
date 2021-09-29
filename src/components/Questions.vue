@@ -1,7 +1,7 @@
 <template>
-  <div class="question">
+  <div class="questions">
     <div class="heading">
-      <div class="btn-arrow" @click="goToFaq()">
+      <div @click="goToFaq()" class="btn-arrow">
         <div class="arrow"></div>
       </div>
       <div class="heading-text">
@@ -33,12 +33,12 @@ export default {
   },
   methods: {
     goToAnswer(question) {
-      this.$store.dispath('increaseTransitionDepth')
-      this.$store.dispath('getSingleQuestion', question)
-      this.$store.dispath('changeCurrentComponent', 'Answer')
+      this.$store.dispatch('increaseTransitionDepth')
+      this.$store.dispatch('getSingleQuestion', question)
+      this.$store.dispatch('changeCurrentComponent', 'Answer')
     },
     goToFaq() {
-      this.$store.dispath('decreaseTransitionDepth')
+      this.$store.dispatch('decreaseTransitionDepth')
       this.$store.dispatch('changeCurrentComponent', 'FaqCategories')
     },
     getImage(item) {
@@ -126,3 +126,4 @@ export default {
   }
 }
 </style>
+

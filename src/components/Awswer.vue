@@ -1,7 +1,7 @@
 <template>
-  <div class="awswer">
+  <div class="answer">
     <div class="heading">
-      <div class="bnt-arrow" @click="goToQuestion()">
+      <div @click="goToQuestions()" class="btn-arrow">
         <div class="arrow"></div>
       </div>
       <div class="heading-text">
@@ -17,13 +17,13 @@ export default {
   name: 'Answer',
   computed: {
     $singleQuestion() {
-      return this.$$store.getters.$singleQuestion
+      return this.$store.getters.$singleQuestion
     }
   },
   methods: {
-    goToQuestion() {
-      this.$store.dispatch('decreaseTransitonDepth')
-      this.$store.dispatch('changeCurrentComponent')
+    goToQuestions() {
+      this.$store.dispatch('decreaseTransitionDepth')
+      this.$store.dispatch('changeCurrentComponent', 'Questions')
     }
   }
 }

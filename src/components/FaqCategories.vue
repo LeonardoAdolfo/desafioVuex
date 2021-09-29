@@ -12,7 +12,7 @@
         <li
           v-for="category in $allCategories"
           :key="category.id"
-          @click="goToCategories(category)"
+          @click="goToQuestion(category)"
           class="category-item"
         >
           <img src="getImage(category)" alt="`Ícone do ${category.title}`" />
@@ -27,7 +27,13 @@
 export default {
   name: 'FaqCategories',
   created() {
-    this.$store.getters.$allCategories
+    this.$store.dispath('fetchFaqCategories')
+
+  },
+  computed: {
+    $allCategories(){
+      return this.$store.getters.$allCategories
+    }
   },
   methods: {
     goToQuestion(category) {

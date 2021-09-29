@@ -4,20 +4,20 @@ import { faqCategories } from '../utils/db.json'
 export default createStore({
   state: {
     faqCategories: [],
-    singleCatagory: {},
+    singleCategory: {},
     singleQuestion: {},
     currentComponent: 'FaqCategories',
     transitionDepth: 1
   },
   mutations: {
-    SET_FAQ_CATEGORIES(state, data) {
-      state.faqCategories = data
+    SET_FAQ_CATEGORIES(state, payload) {
+      state.faqCategories = payload
     },
-    SET_CURRENT_COMPONENT(state, payload) {
-      state.currentComponent = payload
+    SET_CURRENT_COMPONENT(sate, payload) {
+      sate.currentComponent = payload
     },
     SET_SINGLE_CATEGORY(state, payload) {
-      state.singleCatagory = payload
+      state.singleCategory = payload
     },
     SET_SINGLE_QUESTION(state, payload) {
       state.singleQuestion = payload
@@ -30,17 +30,17 @@ export default createStore({
     }
   },
   actions: {
-    fetchFaqCategorias({ commit }) {
+    fetchFaqCategories({ commit }) {
       const data = faqCategories
       commit('SET_FAQ_CATEGORIES', data)
     },
     changeCurrentComponent({ commit }, payload) {
       commit('SET_CURRENT_COMPONENT', payload)
     },
-    increaseTransitonDepth({ commit }) {
+    increaseTransitionDepth({ commit }) {
       commit('INCREASE_TRANSITION_DEPTH')
     },
-    decreaseTransitonDepth({ commit }) {
+    decreaseTransitionDepth({ commit }) {
       commit('DECREASE_TRANSITION_DEPTH')
     },
     getSingleCategory({ commit }, payload) {
@@ -58,7 +58,7 @@ export default createStore({
       return state.faqCategories
     },
     $singleCategory(state) {
-      return state.singleCatagory
+      return state.singleCategory
     },
     $singleQuestion(state) {
       return state.singleQuestion
