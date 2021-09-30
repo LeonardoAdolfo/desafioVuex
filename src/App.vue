@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import FaqCategories from '@/components/FaqCategories'
-import Questions from '@/components/Questions'
-import Answer from '@/components/Answer'
-import 'animate.css'
+import FaqCategories from './components/FaqCategories.vue'
+import Questions from './components/Questions.vue'
+import Answer from './components/Awswer.vue'
+
 export default {
   name: 'App',
   components: { FaqCategories, Questions, Answer },

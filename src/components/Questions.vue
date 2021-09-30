@@ -42,7 +42,7 @@ export default {
       this.$store.dispatch('changeCurrentComponent', 'FaqCategories')
     },
     getImage(item) {
-      return require(`@/assets/images/${item.icon}`)
+      return require(`../assets/images/${item.icon}`)
     }
   }
 }

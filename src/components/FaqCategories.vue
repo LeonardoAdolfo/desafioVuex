@@ -2,7 +2,7 @@
   <div class="faq-categories">
     <div class="heading">
       <div class="image-heading">
-        <img src="@/assests/images/astronaut.svg" alt="" />
+        <img src="../assets/images/astronaut.svg" alt="" />
       </div>
       <div class="heading-text">
         <h2>Perguntas Frequentes</h2>
@@ -15,7 +15,7 @@
           @click="goToQuestion(category)"
           class="category-item"
         >
-          <img src="getImage(category)" alt="`Ícone do ${category.title}`" />
+          <img :src="getImage(category)" :alt="`Ícone do ${category.title}`" />
           <p>{{ category.title }}</p>
         </li>
       </ul>
@@ -27,7 +27,7 @@
 export default {
   name: 'FaqCategories',
   created() {
-    this.$store.dispath('fetchFaqCategories')
+    this.$store.dispatch('fetchFaqCategories')
 
   },
   computed: {
@@ -37,12 +37,12 @@ export default {
   },
   methods: {
     goToQuestion(category) {
-      this.$store.dispath('increaseTransitonDepth')
-      this.$store.dispath('changeCurrentComponent', 'Question')
-      this.$store.dispath('getSingleCategory', category)
+      this.$store.dispatch('increaseTransitionDepth')
+      this.$store.dispatch('changeCurrentComponent', 'Question')
+      this.$store.dispatch('getSingleCategory', category)
     },
     getImage(item) {
-      return require(`@/assets/images/${item.icon}`)
+      return require(`../assets/images/${item.icon}`)
     }
   }
 }
