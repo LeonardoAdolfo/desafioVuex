@@ -28,17 +28,16 @@ export default {
   name: 'FaqCategories',
   created() {
     this.$store.dispatch('fetchFaqCategories')
-
   },
   computed: {
-    $allCategories(){
+    $allCategories() {
       return this.$store.getters.$allCategories
     }
   },
   methods: {
     goToQuestion(category) {
       this.$store.dispatch('increaseTransitionDepth')
-      this.$store.dispatch('changeCurrentComponent', 'Question')
+      this.$store.dispatch('changeCurrentComponent', 'Questions')
       this.$store.dispatch('getSingleCategory', category)
     },
     getImage(item) {
